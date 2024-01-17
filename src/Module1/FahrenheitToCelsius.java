@@ -7,9 +7,9 @@ public class FahrenheitToCelsius  {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter a temperature in Fahrenheit: ");
-        int fahrenheit = Integer.parseInt(scanner.nextLine());
+        double fahrenheit = scanner.nextDouble();
 
-        double celsius = (double) ((fahrenheit - 32) * 5) / 9;
+        double celsius = ((fahrenheit - 32) * 5) / 9;
 
         System.out.printf("The temperature in celsius is %2.1f", celsius);
         System.out.print("°.");
