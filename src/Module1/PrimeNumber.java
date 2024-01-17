@@ -33,8 +33,7 @@ public class PrimeNumber {
 
             for (int i = first; i <= second; i++) {
                 if (isPrime(i)) {
-                    System.out.println("The prime numbers between start and end numbers: ");
-                    System.out.println(i);
+                    System.out.println("Prime number between start and end numbers: " + i);
             }
 
         }
