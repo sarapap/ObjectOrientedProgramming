@@ -9,6 +9,7 @@ public class ObsoleteMeasures {
         System.out.println("Enter a weight in grams (g):");
         int grams = Integer.parseInt(scanner.nextLine());
 
+
         int leiviska = (int) (grams / (20 * 32 * 13.28));
         int naula = (int) ((grams % (20 * 32 * 13.28)) / (32 * 13.28));
         double luoti = ((grams % (32 * 13.28)) / 13.28);
