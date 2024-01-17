@@ -2,8 +2,6 @@ package Module1;
 
 import java.util.Scanner;
 
-import java.util.Scanner;
-
 public class QuadraticEquation {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -28,7 +26,7 @@ public class QuadraticEquation {
             System.out.println("Root = " + root);
 
         } else {
-            System.out.println("No real roots.");
+            System.out.println("The equation has no roots.");
         }
     }
 }

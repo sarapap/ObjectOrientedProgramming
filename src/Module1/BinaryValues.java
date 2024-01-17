@@ -3,13 +3,13 @@ package Module1;
 import java.util.Scanner;
 public class BinaryValues {
 
-    private static int binaryToDecimal(String binaryInput) {
+    private static int binaryToDecimal(String binary) {
         int decimal = 0;
 
-        // Loop through each bit in the binary input
-        for (int i = binaryInput.length() - 1, power = 0; i >= 0; i--, power++) {
-            int bit = Character.getNumericValue(binaryInput.charAt(i));
-            decimal += bit * Math.pow(2, power);
+        // Loop through each bit
+        for (int i = binary.length() - 1, power = 0; i >= 0; i--, power++) {
+            int bit = Character.getNumericValue(binary.charAt(i));
+            decimal += (int) (bit * Math.pow(2, power));
         }
         return decimal;
     }
