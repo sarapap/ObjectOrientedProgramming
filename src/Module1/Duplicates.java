@@ -17,7 +17,7 @@ public class Duplicates {
             System.out.printf("Enter integer %d: ", i+1 );
             integers[i] = scanner.nextInt();
 
-        int [] integers2 = removeDuplicates(integers);
+        int [] integers2 = (integers);
         for (int value : integers2) {
             System.out.println(value + " ");
 

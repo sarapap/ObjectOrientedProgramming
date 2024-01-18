@@ -16,6 +16,34 @@ public class MaxSubarraySum {
             System.out.printf("Enter integer %d: ", i+1 );
             integers[i] = scanner.nextInt();
 
+        int maxSum = Integer.MIN_VALUE;
+        int currentSum = 0;
+        int start = 0;
+        int end = 0;
+        int tempStart = 0;
+
+        for (int j = 0; j < size; j++) {
+            currentSum += integers[j];
+
+            if (currentSum > maxSum) {
+                maxSum = currentSum;
+                start = tempStart;
+                end = j;
+            }
+
+            if (currentSum < 0) {
+                currentSum = 0;
+                tempStart = i + 1;
+            }
+        }
+
+
+        System.out.println("Maximum sum: " + maxSum);
+        System.out.println("Integers: ");
+        for (int z = start; z <= end; z++) {
+            System.out.println(integers[z]);
+        }
+
 
 }
 } }
