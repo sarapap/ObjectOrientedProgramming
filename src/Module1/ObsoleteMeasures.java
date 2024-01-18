@@ -15,5 +15,6 @@ public class ObsoleteMeasures {
         double luoti = ((grams % (32 * 13.28)) / 13.28);
 
         System.out.print(grams + "grams is " + leiviska + "leiviskä, " + naula + "naula and " + luoti + "luoti.");
+        System.out.printf("Grams: %3.3f", luoti);
     }
 }
