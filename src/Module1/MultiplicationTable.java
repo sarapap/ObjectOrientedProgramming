@@ -31,7 +31,7 @@ public class MultiplicationTable {
             System.out.println("You scored " + total + "!");
 
             if (total == 10) {
-                System.out.println("Congratulations! You've mastered the multiplication tables.");
+                System.out.println("Congratulations! You've mastered the multiplication table.");
                 break;
             } else {
                 System.out.println("Time for another set of problems! ");
