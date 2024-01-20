@@ -20,30 +20,28 @@ public class MaxSubarraySum {
         int currentSum = 0;
         int start = 0;
         int end = 0;
-        int tempStart = 0;
+        int currentStart = 0;
 
-        for (int j = 0; j < size; j++) {
+        int j;
+        for (j = 0; j < size; j++) {
             currentSum += integers[j];
 
             if (currentSum > maxSum) {
                 maxSum = currentSum;
-                start = tempStart;
+                start = currentStart;
                 end = j;
             }
 
             if (currentSum < 0) {
                 currentSum = 0;
-                tempStart = i + 1;
+                currentStart = j + 1;
             }
         }
 
 
         System.out.println("Maximum sum: " + maxSum);
         System.out.println("Integers: ");
-        for (int z = start; z <= end; z++) {
-            System.out.println(integers[z]);
-        }
-
-
+        for (int k = start; k <= end; k++) {
+            System.out.print(integers[k]);
 }
-} }
+} }}
