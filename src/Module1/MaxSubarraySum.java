@@ -1,5 +1,6 @@
 package Module1;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class MaxSubarraySum {
@@ -13,35 +14,32 @@ public class MaxSubarraySum {
 
         System.out.println("Enter the integers into the array: ");
         for (int i = 0; i < size; i++) {
-            System.out.printf("Enter integer %d: ", i+1 );
+            System.out.printf("Enter integer %d: ", i + 1);
             integers[i] = scanner.nextInt();
+        }
 
-        int maxSum = Integer.MIN_VALUE;
-        int currentSum = 0;
+        int max = Integer.MIN_VALUE;
+        int sum = 0;
         int start = 0;
         int end = 0;
-        int currentStart = 0;
+        int current_start = 0;
 
-        int j;
-        for (j = 0; j < size; j++) {
-            currentSum += integers[j];
+        int i;
+        for (i=0; i<size; i++) {
+            sum += integers[i];
 
-            if (currentSum > maxSum) {
-                maxSum = currentSum;
-                start = currentStart;
-                end = j;
+            if (sum > max) {
+                max = sum;
+                start = current_start;
+                end = i;
             }
-
-            if (currentSum < 0) {
-                currentSum = 0;
-                currentStart = j + 1;
+            if (sum < 0) {
+                sum = 0;
+                current_start = i + 1;
             }
         }
 
-
-        System.out.println("Maximum sum: " + maxSum);
-        System.out.println("Integers: ");
-        for (int k = start; k <= end; k++) {
-            System.out.print(integers[k]);
+        System.out.println("\nMaximum sum: " + max);
+        System.out.println("Integers: " + (start + 1) + "-" + (end + 1));
 }
-} }}
+}
