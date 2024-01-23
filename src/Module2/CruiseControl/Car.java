@@ -17,22 +17,22 @@ public class Car {
     }
 
     public void accelerate() {
-        if (gasolineLevel > 0)
+        if (gasolineLevel > 0) {
             speed += 10;
-        else
+            adjustSpeed();
+        }
+        else {
             speed = 0;
-    }
-
-
+        } }
 
     void decelerate(int amount) {
         if (gasolineLevel > 0) {
             if (amount > 0)
                 speed = Math.max(0, speed - amount);
-        } else
-            speed = 0;
+            adjustSpeed();
+        } else {
+            speed = 0; }
     }
-
 
 
     public boolean setCruiseControlSpeed(float targetSpeed) {
@@ -49,11 +49,28 @@ public class Car {
     }
 
 
-
-
-    public void turnOffCruiseControl() {
+    public void turnOffControl() {
         cruiseControl = false;
-        System.out.println("Cruise control is OFF.");
+        System.out.println("Cruise control is OFF");
+    }
+
+    public boolean turnOnControl(float targetSpeed) {
+        if (cruiseControl = false || targetSpeed < 30 || targetSpeed > 120) {
+            System.out.println("Cruise Control can not be turned on since the target speed is not met.");
+            return false;
+        }
+        cruiseControl = true;
+        cruiseControlSpeed = targetSpeed;
+        System.out.println("Cruise control is ON");
+        return true;
+    }
+
+    private void adjustSpeed() {
+        if (cruiseControl && speed < cruiseControlSpeed) {
+            speed = Math.min(speed +5, cruiseControlSpeed);
+        } else if (cruiseControl && speed > cruiseControlSpeed) {
+            speed = Math.min(speed - 5, cruiseControlSpeed);
+        }
     }
 
     float getSpeed() {

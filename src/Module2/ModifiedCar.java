@@ -6,18 +6,16 @@ public class ModifiedCar {
     private float gasolineLevel;
     private String typeName;
 
-    public ModifiedCar(String typeName, float gasolineTankCapacity, float topSpeed) {
+    public ModifiedCar(String typeName) {
         this.typeName = typeName;
         speed = 0;
         gasolineLevel = 0;
+    }
 
-        if (gasolineTankCapacity > 0) {
-            fillTank(gasolineTankCapacity);
-        }
-
-        if (topSpeed >= 0) {
-            speed = Math.min(speed, topSpeed);
-        }
+    public ModifiedCar(String typename, float gasolineLevel, float topspeed) {
+        this.typeName = typeName;
+        this.gasolineLevel = Math.min(100, gasolineLevel);
+        this.speed = 0;
     }
 
     public void accelerate() {
@@ -45,10 +43,6 @@ public class ModifiedCar {
 
     void fillTank() {
         gasolineLevel = 100;
-    }
-
-    void fillTank(float gasolineTankCapacity) {
-        gasolineLevel = Math.min(100, gasolineTankCapacity);
     }
 
     float getGasolineLevel() {

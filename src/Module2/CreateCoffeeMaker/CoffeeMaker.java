@@ -10,5 +10,8 @@ public class CoffeeMaker {
         coffeeMaker.setCoffeeType("strong");
         coffeeMaker.setAmount(50);
 
+        coffeeMaker.setCoffeeType("espresso");
+        coffeeMaker.setAmount(70);
+
     }
 }
