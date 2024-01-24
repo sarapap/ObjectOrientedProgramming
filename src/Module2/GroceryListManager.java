@@ -6,7 +6,7 @@ public class GroceryListManager {
     private ArrayList<String> groceryList = new ArrayList<>();
 
     // Add methods here
-    public void addItem(String item, double v) {
+    public void addItem(String item) {
             groceryList.add(item);
     }
 
@@ -34,9 +34,9 @@ public class GroceryListManager {
     public static void main(String[] args) {
         GroceryListManager groceryList = new GroceryListManager();
 
-        groceryList.addItem("apple", 0.50);
-        groceryList.addItem("banana", 0.50);
-        groceryList.addItem("strawberry", 0.50);
+        groceryList.addItem("apple");
+        groceryList.addItem("banana");
+        groceryList.addItem("strawberry");
         groceryList.displayList();
 
         String item = "apple";
