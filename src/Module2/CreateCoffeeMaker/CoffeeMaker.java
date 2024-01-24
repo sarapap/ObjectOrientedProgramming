@@ -7,7 +7,7 @@ public class CoffeeMaker {
         if (!coffeeMaker.isOn())
             coffeeMaker.pressOnOff();
 
-        coffeeMaker.setCoffeeType("strong");
+        coffeeMaker.setCoffeeType("normal");
         coffeeMaker.setAmount(50);
 
         coffeeMaker.setCoffeeType("espresso");

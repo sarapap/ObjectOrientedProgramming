@@ -16,7 +16,7 @@ public class CarDriver {
             System.out.println(myCar.getTypeName() + ": speed is " + myCar.getSpeed() + " km/h");
         }
 
-        System.out.println("\nTesting of Cruise Control.");
+        System.out.println("\nTesting of Cruise Control.\n");
 
         myCar.turnOnControl(80); // target speed
 

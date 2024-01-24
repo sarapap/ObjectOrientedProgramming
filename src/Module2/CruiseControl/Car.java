@@ -51,17 +51,17 @@ public class Car {
 
     public void turnOffControl() {
         cruiseControl = false;
-        System.out.println("Cruise control is OFF");
+        System.out.println("\nCruise control is OFF");
     }
 
     public boolean turnOnControl(float targetSpeed) {
         if (cruiseControl = false || targetSpeed < 30 || targetSpeed > 120) {
-            System.out.println("Cruise Control can not be turned on since the target speed is not met.");
+            System.out.println("Cruise Control can not be turned on since the target speed is not met.\n");
             return false;
         }
         cruiseControl = true;
         cruiseControlSpeed = targetSpeed;
-        System.out.println("Cruise control is ON");
+        System.out.println("Cruise control is ON\n");
         return true;
     }
 
