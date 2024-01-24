@@ -1,13 +1,12 @@
 package Module2;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class QuantityTracking {
     private Map<String, Double> groceryList = new HashMap<>();
     private Map<String, String> categories = new HashMap<>();
-    private ArrayList<Integer> quantities = new ArrayList<>();
+    private Map<String, Integer> quantities = new HashMap<>();
 
     // Add methods here
    /* public void addItem(String item) {
@@ -22,7 +21,7 @@ public class QuantityTracking {
     public void addItemWithQuantity(String item, double cost, String category, int newQuantity) {
         groceryList.put(item, cost);
         categories.put(item, category);
-        quantities.add(newQuantity);
+        quantities.put(item, newQuantity);
     }
 
     public void removeItem(String item) {
@@ -35,7 +34,9 @@ public class QuantityTracking {
         for (Map.Entry<String, Double> groceryItem : groceryList.entrySet()) {
             String item = groceryItem.getKey();
             String category = categories.get(item);
-            System.out.println("Category: " + category + " = " + item + " " + groceryItem.getValue() + "€");
+            int quantity = quantities.getOrDefault(item, 0);
+            System.out.println("Category: " + category + " = " + item + " " + groceryItem.getValue() + "€, " +
+                    "Quantity: "+ quantity);
         }
     }
 
@@ -51,19 +52,18 @@ public class QuantityTracking {
     }*/
 
     public void updateQuantity(String item, int newQuantity) {
-
-
+        if (quantities.containsKey(item)) {
+            quantities.put(item, newQuantity);
+        }
     }
 
     public void displayAvailableItems() {
-        System.out.println("\nAvailable items: " + i )
+        System.out.println("\nAvailability: "  );
         for (Map.Entry<String, Double> groceryItem : groceryList.entrySet()) {
             String item = groceryItem.getKey();
-            String itemQuantity = quantities.get();
-            if ()) {
-                String quantity = quantities.
-
-
+            int itemQuantity = quantities.getOrDefault(item, 0);
+            if (itemQuantity > 0) {
+                System.out.println("Items available: " + item + " = " + itemQuantity);
             }
         }
 
@@ -88,11 +88,14 @@ public class QuantityTracking {
 
         groceryList.addItemWithQuantity("Apples", 2.7, "Fruits", 4);
         groceryList.addItemWithQuantity("Bananas", 2.5, "Fruits", 7);
-        groceryList.addItemWithQuantity("Milk", 1.2,"Dairy", 1);
+        groceryList.addItemWithQuantity("Milk", 1.2,"Dairy", 0);
         groceryList.addItemWithQuantity("Yoghurt",2.2, "Dairy", 2);
         groceryList.addItemWithQuantity("Cheese",6.4 ,"Dairy", 1);
         groceryList.addItemWithQuantity("Bread", 3.1,"Bakery", 2);
         groceryList.displayList();
+
+        groceryList.updateQuantity("Bananas", 6);
+        groceryList.displayList(); //Check bananas new quantity
 
         String item = "Apples";
         System.out.println("\nIs \"" + item + "\" in the grocery list? " + groceryList.checkItem(item));
@@ -101,6 +104,7 @@ public class QuantityTracking {
         System.out.println("\nRemoving \"" + item + "\" from the list..." );
 
         groceryList.updatedList();
+        groceryList.displayAvailableItems();
 
     }
 }
