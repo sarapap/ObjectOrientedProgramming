@@ -9,7 +9,6 @@ public class TotalCost {
     // Add methods here
     public void addItem(String item, double cost) {
         groceryList.put(item, cost);
-        System.out.println("Adding " + item + " to the grocery list costing " + cost + "€.");
     }
 
     public void removeItem(String item) {
