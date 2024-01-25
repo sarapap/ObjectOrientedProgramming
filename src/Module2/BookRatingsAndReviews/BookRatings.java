@@ -1,7 +1,7 @@
-package Module2.BookBorrowingSystem;
+package Module2.BookRatingsAndReviews;
 
 
-public class LibraryMain {
+public class BookRatings {
     public static void main(String[] args) {
         Library library = new Library();
         Book Book = new Book("Harry Potter and the Philosophers Stone", "J. K. Rowling", 2001);
@@ -20,5 +20,9 @@ public class LibraryMain {
 
         library.returnBook(Book2);
         library.updatedBooks();
+
+        String book = "Iron Flame";
+
+        System.out.println("\nIs \"" + book + "\" available? " + library.isBookAvailable(book));
     }
 }

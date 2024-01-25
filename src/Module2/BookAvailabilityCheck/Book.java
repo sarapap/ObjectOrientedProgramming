@@ -1,11 +1,11 @@
-package Module2.BookBorrowingSystem;
+package Module2.BookAvailabilityCheck;
 
-public class Book1 {
+public class Book {
     private String title;
     private String author;
     private int year;
 
-    public Book1(String title, String author, int year) {
+    public Book(String title, String author, int year) {
         this.title = title;
         this.author = author;
         this.year = year;

@@ -1,4 +1,4 @@
-package Module2.BookBorrowingSystem;
+package Module2.BookAvailabilityCheck;
 
 import java.util.ArrayList;
 
@@ -61,6 +61,14 @@ public class Library {
             System.out.println("- Author: " + book.getAuthor());
             System.out.println("- Publication year: " + book.getYear());
         }
+    }
+
+    public boolean isBookAvailable(String title) {
+        for (Book book : books) {
+            if (book.getTitle().equalsIgnoreCase(title)) {
+                return true;
+            }
+        } return false;
     }
 
 }
