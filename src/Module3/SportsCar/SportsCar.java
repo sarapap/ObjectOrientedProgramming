@@ -2,39 +2,24 @@ package Module3.SportsCar;
 
 
 public class SportsCar extends Car {
-    private float speed;
-    private float gasolineLevel;
-    private String typeName;
+    private void setSpeed(float v) {
+    }
 
     public SportsCar(String typeName) {
-        speed = 0; gasolineLevel = 0;
-        this.typeName = typeName;
+        super(typeName);
     }
-
 
     public void accelerate() {
-        if (gasolineLevel > 0)
-            speed += 10;
+        if (getGasolineLevel() > 0)
+            setSpeed(getSpeed() + 20);
         else
-            speed = 0;
+            setSpeed(0);
     }
+
     void decelerate(int amount) {
-        if (gasolineLevel > 0) {
+        if (getGasolineLevel() > 0) {
             if (amount > 0)
-                speed = Math.max(0, speed - amount);
+                setSpeed(Math.max(0, getSpeed()- amount * 2));
         } else
-            speed = 0;
-    }
-    float getSpeed() {
-        return speed;
-    }
-    String getTypeName() {
-        return typeName;
-    }
-    void fillTank() {
-        gasolineLevel = 100;
-    }
-    float getGasolineLevel() {
-        return gasolineLevel;
-    }
-}
+            setSpeed(0);
+    }}
