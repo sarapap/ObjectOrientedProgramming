@@ -33,7 +33,4 @@ public class Bus extends AbstractVehicle {
         System.out.println("Not possible to charge.");
     }
 
-    public void calculateFuelEfficiency() {
-        System.out.println("Calculated fuel efficiency: " + value);
-    }
 }
