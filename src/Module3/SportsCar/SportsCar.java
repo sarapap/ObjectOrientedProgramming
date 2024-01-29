@@ -2,7 +2,8 @@ package Module3.SportsCar;
 
 
 public class SportsCar extends Car {
-    private void setSpeed(float v) {
+    private void setSpeed(float speed) {
+        super.speed = speed;
     }
 
     public SportsCar(String typeName) {
@@ -19,7 +20,9 @@ public class SportsCar extends Car {
     void decelerate(int amount) {
         if (getGasolineLevel() > 0) {
             if (amount > 0)
-                setSpeed(Math.max(0, getSpeed()- amount * 2));
+                setSpeed(Math.max(0, getSpeed() - amount * 2));
         } else
             setSpeed(0);
-    }}
+
+    }
+}

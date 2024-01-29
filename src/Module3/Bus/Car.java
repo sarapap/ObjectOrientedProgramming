@@ -1,11 +1,10 @@
-package Module3.SportsCar;
-
+package Module3.Bus;
 
 public class Car {
 
-    protected float speed;
-    protected float gasolineLevel;
-    protected String typeName;
+    private float speed;
+    private float gasolineLevel;
+    private String typeName;
 
 
     public Car(String typeName) {

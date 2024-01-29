@@ -11,12 +11,17 @@ public class CarTest {
         myCar.fillTank();
         mySportsCar.fillTank();
 
-        for(int i = 0; i < 6; i++) {
+        for (int i = 0; i < 6; i++) {
             myCar.accelerate();
             System.out.println(myCar.getTypeName() + ": speed is " + myCar.getSpeed() + " km/h");
         }
 
-        for(int j = 0; j < 6; j++) {
+        while (myCar.getSpeed() > 0) {
+            myCar.decelerate(15);
+            System.out.println(myCar.getTypeName() + ": speed is " + myCar.getSpeed() + " km/h");
+        }
+
+        for (int j = 0; j < 6; j++) {
             mySportsCar.accelerate();
             System.out.println(mySportsCar.getTypeName() + ": speed is " + mySportsCar.getSpeed() + " km/h");
         }
@@ -24,11 +29,6 @@ public class CarTest {
         while(mySportsCar.getSpeed() > 0) {
             mySportsCar.decelerate(15);
             System.out.println(mySportsCar.getTypeName() + ": speed is " + mySportsCar.getSpeed() + " km/h");
-        }
-
-        while(myCar.getSpeed() > 0) {
-            myCar.decelerate(15);
-            System.out.println(myCar.getTypeName() + ": speed is " + myCar.getSpeed() + " km/h");
         }
     }
 }
