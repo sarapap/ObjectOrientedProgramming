@@ -4,6 +4,7 @@ public class Book {
     private String title;
     private String author;
     private String ISBN;
+    private boolean reserved = false;
 
     public Book(String title, String author, String ISBN) {
         this.title = title;
@@ -11,12 +12,18 @@ public class Book {
         this.ISBN = ISBN;
     }
 
-    public boolean reserved() {
-        return false;
+    public boolean isReserved() {
+        return true;
+    }
+
+    public void setReserved(boolean b) {
+    }
+
+    public boolean getTitle() {
+        return true;
     }
 
     public String toString() {
         return "\nTitle: " + title + ", Author: " + author + ", ISBN: " + ISBN;
     }
-
 }
