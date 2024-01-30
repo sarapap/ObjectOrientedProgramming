@@ -20,28 +20,17 @@ public class Library {
 
     public void addMember(LibraryMember member) {
         members.add(member);
+        System.out.println(member);
     }
 
-    public void borrowBooks(LibraryMember member, Book book) {
+    public void borrowBook(LibraryMember member, Book book) {
         member.borrowBook(book);
     }
 
-    public void returnBooks(LibraryMember member, Book book) {
+    public void returnBook(LibraryMember member, Book book) {
         member.returnBook(book);
     }
 
-    public void displayBooks() {
-        for (Book book : books) {
-            System.out.println("\nBooks in the library: " + book);
-        }
-    }
-
-    public void displayMembers() {
-        System.out.println("\nMembers in the library: ");
-        for (LibraryMember member : members) {
-            System.out.println(member);
-        }
-    }
 
     public void reserveBook(LibraryMember member, Book book) {
         if (!book.isReserved()) {
