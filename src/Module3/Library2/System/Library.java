@@ -38,7 +38,7 @@ public class Library {
             member.addReservedBook(book);
             System.out.println("Book reserved successfully.");
         } else {
-            System.out.println("Book is already reserved.");
+            System.out.println("\nBook is already reserved.");
         }
     }
 
@@ -46,14 +46,14 @@ public class Library {
         if (book.isReserved() && member.hasReservedBook(book)) {
             book.setReserved(false);
             member.removeReservedBook(book);
-            System.out.println("Reservation canceled successfully.");
+            System.out.println("\nReservation canceled successfully.");
         } else {
-            System.out.println("Book was not reserved by this member.");
+            System.out.println("\nBook was not reserved by this member.");
         }
     }
 
     public void displayReservedBooks(LibraryMember member) {
-        System.out.println("Reserved books for " + member.getName() + ":");
+        System.out.println("\nReserved books for " + member.getName() + ":");
         for (Book book : member.getReservedBooks()) {
             System.out.println(book.getTitle());
         }

@@ -13,14 +13,16 @@ public class Book {
     }
 
     public boolean isReserved() {
-        return true;
+        return reserved;
     }
 
     public void setReserved(boolean b) {
+        this.reserved = b;
+
     }
 
-    public boolean getTitle() {
-        return true;
+    public String getTitle() {
+        return title;
     }
 
     public String toString() {
