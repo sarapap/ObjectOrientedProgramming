@@ -2,8 +2,8 @@ package Module3.FuelEfficiency;
 
 
 public class Motorcycle extends AbstractVehicle {
-    public Motorcycle(double speed, String model, double value) {
-        super(speed, model, value);
+    public Motorcycle(double speed, String model, double fuelConsumed) {
+        super(speed, model, fuelConsumed);
     }
     public void start() {
         System.out.println("\nMotorcycle is starting... ");
@@ -13,11 +13,10 @@ public class Motorcycle extends AbstractVehicle {
         System.out.println("Motorcycle is stopping... ");
     }
 
-    public void getInfo() {
-        System.out.println("\nMotorcycle information: ");
-        System.out.println("Type: Motorcycle");
-        System.out.println("Fuel: Gasoline");
-        System.out.println("Color: Black");
+    public String getInfo() {
+        return "\nMotorcycle information: " +
+                "Type: Motorcycle" + "Fuel: Gasoline" +
+                "Color: Black";
     }
 
     public void getSpeed() {
@@ -29,6 +28,11 @@ public class Motorcycle extends AbstractVehicle {
     }
     public void charge() {
         System.out.println("Not possible to charge.");
+    }
+
+    public double calculateFuelEfficiency(double distance) {
+        double litersPerKm = fuelConsumed / distance;
+        return litersPerKm;
     }
 
 }

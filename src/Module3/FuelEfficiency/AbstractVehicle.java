@@ -4,20 +4,20 @@ package Module3.FuelEfficiency;
 abstract class AbstractVehicle implements Vehicle, ElectricVehicle {
     protected double speed;
     protected String model;
-    protected double value;
+    protected double fuelConsumed;
 
-    public AbstractVehicle(double speed, String model, double value) {
+    public AbstractVehicle(double speed, String model, double fuelConsumed) {
         this.speed = speed;
         this.model = model;
-        this.value = value;
+        this.fuelConsumed = fuelConsumed;
     }
 
     abstract void getSpeed();
     abstract void getModel();
 
-    @Override
     public double calculateFuelEfficiency() {
-        return value;
+        return fuelConsumed;
     }
+
 }
 

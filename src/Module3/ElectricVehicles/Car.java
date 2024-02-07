@@ -1,7 +1,7 @@
 package Module3.ElectricVehicles;
 
 public class Car extends AbstractVehicle {
-    public Car(double speed, String model) {
+    public Car(double speed, String model, double v) {
         super(speed, model);
     }
     public void start() {

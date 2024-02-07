@@ -2,7 +2,7 @@ package Module3.ElectricVehicles;
 
 public class VehicleDemo {
     public static void main(String[] args) {
-        Car car = new Car(60, "Toyota");
+        Car car = new Car(60, "Toyota", 30.1);
         Motorcycle motorcycle = new Motorcycle(80, "Honda Super Cub");
         Bus bus = new Bus(50, "Mercedes Benz");
         ElectricMotorcycle electricMotorcycle = new ElectricMotorcycle(80, "BMW");

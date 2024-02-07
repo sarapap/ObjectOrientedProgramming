@@ -1,63 +1,64 @@
 package Module3;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.time.LocalDate;
+import java.io.*;
+import java.net.*;
+import java.time.format.*;
+import java.util.*;
 
 public class CSVfile {
-    private final static String Filename = "temploki.csv";
 
     public static void main(String[] args) {
-        BufferedReader bufferedReader = null;
+        URL myUrl;
 
         try {
-            // Open the file in the same directory as the class
-            FileReader fileReader = new FileReader(Filename);
-            bufferedReader = new BufferedReader(fileReader);
+            myUrl = new URL("https://users.metropolia.fi/~jarkkov/temploki.csv");
+        } catch (MalformedURLException e) {
+            System.err.println(e);
+            return;
+        }
+
+        try {
+            InputStream istream = myUrl.openStream();
+            InputStreamReader istreamreader = new InputStreamReader(istream);
+            BufferedReader reader = new BufferedReader(istreamreader);
 
             String line;
-            String[] columnNames = null;
-            boolean header = true;
-            double sum = 0.0;
-            int count = 0;
+            Map<String, Double> temperatureMap = new HashMap<>();
 
-            while ((line = bufferedReader.readLine()) != null) {
-                if (header) {
-                    columnNames = line.split(";");
-                    header = false;
-                } else {
-                    String[] columns = line.split(";");
-                    LocalDate timestamp = LocalDate.parse(columns[0].trim());
+            // Skip the header line
+            reader.readLine();
 
-                    // Check if the timestamp is on January 1, 2023
-                    if (timestamp.equals(LocalDate.of(2023, 1, 1))) {
-                        double temperature = Double.parseDouble(columns[1].replace(",", "."));
-                        sum += temperature;
-                        count++;
-                    }
+            // Read the content of the web page line by line
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length >= 2) { // Ensure it has enough columns
+                    String dateStr = parts[0];
+                    double temperature = Double.parseDouble(parts[1]); // Assuming UlkoTalo is the second column
+                    temperatureMap.put(dateStr, temperature);
                 }
             }
 
-            if (count > 0) {
-                double averageTemperature = sum / count;
-                System.out.println("Average temperature on January 1, 2023: " + averageTemperature);
-            } else {
-                System.out.println("No data found for January 1, 2023.");
+            // Calculate the average temperature for the 1st day of January 2023
+            String targetDate = "2023-01-01";
+            double sumTemperature = 0;
+            int count = 0;
+            for (Map.Entry<String, Double> entry : temperatureMap.entrySet()) {
+                if (entry.getKey().startsWith(targetDate)) {
+                    sumTemperature += entry.getValue();
+                    count++;
+                }
             }
+            double averageTemperature = count > 0 ? sumTemperature / count : 0;
+            System.out.println("Average temperature on " + targetDate + " is: " + averageTemperature);
 
+            // Close the reader
+            reader.close();
         } catch (IOException e) {
             System.err.println(e);
-        } finally {
-            try {
-                if (bufferedReader != null) {
-                    bufferedReader.close();
-                }
-            } catch (IOException e) {
-                System.out.println("Error while closing the file stream.");
-            }
         }
     }
 }
+
+
 
 

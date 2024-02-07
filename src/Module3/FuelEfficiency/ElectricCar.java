@@ -1,8 +1,8 @@
 package Module3.FuelEfficiency;
 
 public class ElectricCar extends AbstractVehicle {
-    public ElectricCar(double speed, String model, double value) {
-        super(speed, model, value);
+    public ElectricCar(double speed, String model, double fuelConsumed) {
+        super(speed, model, fuelConsumed);
     }
     public void start() {
         System.out.println("\nElectric Car is starting... ");
@@ -12,11 +12,10 @@ public class ElectricCar extends AbstractVehicle {
         System.out.println("Electric Car is stopping... ");
     }
 
-    public void getInfo() {
-        System.out.println("\nElectric Car information: ");
-        System.out.println("Type: Electric Car");
-        System.out.println("Battery: Electricity");
-        System.out.println("Color: Yellow");
+    public String getInfo() {
+        return "\nElectric Car information: " +
+        "Type: Electric Car" + "Battery: Electricity" +
+        "Color: Yellow";
     }
 
     public void getSpeed() {
@@ -29,6 +28,11 @@ public class ElectricCar extends AbstractVehicle {
 
     public void charge() {
         System.out.println("Charging... ");
+    }
+
+    public double calculateFuelEfficiency(double distance) {
+        double energyConsumed = distance / fuelConsumed;
+        return energyConsumed;
     }
 
 }

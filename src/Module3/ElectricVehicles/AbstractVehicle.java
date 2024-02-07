@@ -11,5 +11,6 @@ abstract class AbstractVehicle implements Vehicle, ElectricVehicle {
 
     abstract void getSpeed();
     abstract void getModel();
+
 }
 

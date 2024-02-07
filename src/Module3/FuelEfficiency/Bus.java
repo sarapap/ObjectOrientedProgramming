@@ -2,8 +2,8 @@ package Module3.FuelEfficiency;
 
 
 public class Bus extends AbstractVehicle {
-    public Bus(double speed, String model, double value) {
-        super(speed, model, value);
+    public Bus(double speed, String model, double fuelConsumed) {
+        super(speed, model, fuelConsumed);
     }
 
     public void start() {
@@ -14,11 +14,15 @@ public class Bus extends AbstractVehicle {
         System.out.println("Bus is stopping... ");
     }
 
-    public void getInfo() {
-        System.out.println("\nBus information: ");
-        System.out.println("Type: Bus");
-        System.out.println("Fuel: Diesel");
-        System.out.println("Capacity: 40 passengers");
+    public String getInfo() {
+        return "\nBus information: " +
+                "Type: Bus" + "Fuel: Diesel" +
+                "Capacity: 40 passengers";
+    }
+
+    public double calculateFuelEfficiency(double distance) {
+        double litersPerKm = fuelConsumed / distance;
+        return litersPerKm;
     }
 
     public void getSpeed() {

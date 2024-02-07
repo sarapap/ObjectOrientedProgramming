@@ -1,8 +1,8 @@
 package Module3.FuelEfficiency;
 
 public class Car extends AbstractVehicle {
-    public Car(double speed, String model, double value) {
-        super(speed, model, value);
+    public Car(double speed, String model, double fuelConsumed) {
+        super(speed, model, fuelConsumed);
     }
     public void start() {
         System.out.println("Car is starting... ");
@@ -12,12 +12,13 @@ public class Car extends AbstractVehicle {
         System.out.println("Car is stopping... ");
     }
 
-    public void getInfo() {
-        System.out.println("\nCar information: ");
-        System.out.println("Type: Car");
-        System.out.println("Fuel: Petrol");
-        System.out.println("Color: Red");
+    public String getInfo() {
+        return "\n Car information: " +
+                "Type: Car" + "Fuel: Petrol" +
+                "Color: Red";
     }
+
+
 
     public void getSpeed() {
         System.out.println("The speed of the car is: " + speed + " km/h");
@@ -29,6 +30,11 @@ public class Car extends AbstractVehicle {
 
     public void charge() {
         System.out.println("Not possible to charge.");
+    }
+
+    public double calculateFuelEfficiency(double distance) {
+        double litersPerKm = fuelConsumed / distance;
+        return litersPerKm;
     }
 
 }
