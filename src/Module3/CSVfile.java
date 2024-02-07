@@ -1,63 +1,57 @@
 package Module3;
 
 import java.io.*;
-import java.net.*;
-import java.time.format.*;
-import java.util.*;
+import java.net.URL;
 
 public class CSVfile {
-
     public static void main(String[] args) {
-        URL myUrl;
-
         try {
-            myUrl = new URL("https://users.metropolia.fi/~jarkkov/temploki.csv");
-        } catch (MalformedURLException e) {
-            System.err.println(e);
-            return;
-        }
+            String url = "https://users.metropolia.fi/~jarkkov/temploki.csv";
 
-        try {
-            InputStream istream = myUrl.openStream();
-            InputStreamReader istreamreader = new InputStreamReader(istream);
-            BufferedReader reader = new BufferedReader(istreamreader);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(new URL(url).openStream()));
 
-            String line;
-            Map<String, Double> temperatureMap = new HashMap<>();
-
-            // Skip the header line
+            // Skip the header
             reader.readLine();
 
-            // Read the content of the web page line by line
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
-                if (parts.length >= 2) { // Ensure it has enough columns
-                    String dateStr = parts[0];
-                    double temperature = Double.parseDouble(parts[1]); // Assuming UlkoTalo is the second column
-                    temperatureMap.put(dateStr, temperature);
-                }
-            }
-
-            // Calculate the average temperature for the 1st day of January 2023
-            String targetDate = "2023-01-01";
-            double sumTemperature = 0;
+            double sum = 0;
             int count = 0;
-            for (Map.Entry<String, Double> entry : temperatureMap.entrySet()) {
-                if (entry.getKey().startsWith(targetDate)) {
-                    sumTemperature += entry.getValue();
+
+            // Read each line of the CSV file
+            String line;
+            while ((line = reader.readLine()) != null) {
+                line = line.replace(",", ".");
+                String[] parts = line.split(";");
+
+                String[] dateParts = parts[0].split(" ");
+                String[] date = dateParts[0].split("\\.");
+                int day = Integer.parseInt(date[0]);
+                int month = Integer.parseInt(date[1]);
+                int year = Integer.parseInt(date[2]);
+
+                String temperatureStr = parts[1];
+                if (!temperatureStr.equals("*")) {
+                    // Parse the temperature value to double
+                    double temperature = Double.parseDouble(temperatureStr);
+
+                // Check if the date is on the 1st day of January 2023
+                if (day == 1 && month == 1 && year == 2023) {
+                    sum += temperature;
                     count++;
                 }
-            }
-            double averageTemperature = count > 0 ? sumTemperature / count : 0;
-            System.out.println("Average temperature on " + targetDate + " is: " + averageTemperature);
+            } }
 
-            // Close the reader
             reader.close();
+
+            double average = count > 0 ? sum / count : 0;
+
+            System.out.println("Average temperature on the 1st day of January 2023: " + average);
         } catch (IOException e) {
-            System.err.println(e);
+            e.printStackTrace();
         }
     }
 }
+
+
 
 
 
