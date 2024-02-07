@@ -46,7 +46,7 @@ public class Library {
         if (book.isReserved() && member.hasReservedBook(book)) {
             book.setReserved(false);
             member.removeReservedBook(book);
-            System.out.println("\nReservation canceled successfully.");
+            System.out.println("\nReservation cancelled successfully.");
         } else {
             System.out.println("\nBook was not reserved by this member.");
         }

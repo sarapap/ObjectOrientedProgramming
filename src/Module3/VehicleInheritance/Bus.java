@@ -6,10 +6,12 @@ public class Bus extends AbstractVehicle {
         super(speed, model);
     }
 
+    @Override
     public void start() {
         System.out.println("\nBus is starting... ");
     }
 
+    @Override
     public void stop() {
         System.out.println("Bus is stopping... ");
     }

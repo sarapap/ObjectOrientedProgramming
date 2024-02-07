@@ -4,10 +4,13 @@ public class Motorcycle extends AbstractVehicle {
     public Motorcycle(double speed, String model) {
         super(speed, model);
     }
+
+    @Override
     public void start() {
         System.out.println("\nMotorcycle is starting... ");
     }
 
+    @Override
     public void stop() {
         System.out.println("Motorcycle is stopping... ");
     }
