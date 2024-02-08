@@ -8,7 +8,7 @@ public class FibonacciSequence {
         long[] fibonacci = generateFibonacci(100);
 
         writeToCSV(fibonacci, FILENAME);
-        System.out.println("Sequence has been written");
+        System.out.println("Sequence has been written to a CSV file.");
     }
 
     private static long[] generateFibonacci(int number) {
