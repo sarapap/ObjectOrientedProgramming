@@ -34,5 +34,6 @@ public class Main {
             System.err.println("Deserialization failed: " + e.getMessage());
         }
         return enrollment;
-    }}
+    }
+}
 

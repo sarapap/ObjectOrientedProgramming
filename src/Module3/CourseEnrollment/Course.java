@@ -17,3 +17,5 @@ public class Course implements Serializable {
         return "\nCourse code: " + courseCode + "\nCourse name: " + courseName + "\nInstructor: " + instructor;
     }
 }
+
+
