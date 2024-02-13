@@ -29,7 +29,7 @@ public class ParallelNumber implements Runnable {
         int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         int numThreads = 4;
 
-        int size = numbers.length / 4;
+        int size = numbers.length / numThreads;
         int start = 0;
         int end = size - 1;
 
