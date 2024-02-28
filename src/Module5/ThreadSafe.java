@@ -4,8 +4,7 @@ import java.util.ArrayList;
 
 public class ThreadSafe {
     private ArrayList<String> elements = new ArrayList<>();
-
-    // Add methods here
+    
     public void addItem(String item) {
         elements.add(item);
     }
