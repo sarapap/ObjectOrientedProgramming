@@ -33,8 +33,10 @@ public class ShoppingCart {
         System.out.println("Number of items in the cart: " + cart.getItemCount());
 
         cart.removeItem("Apple");
+        String item = "Apple";
+        System.out.println(item + " has been removed from the cart.");
+        System.out.println("Updated number of items in the cart: " + cart.getItemCount());
         System.out.println("Updated total cost of items in the cart: " + cart.calculateTotal() + " €");
 
-        System.out.println("Number of items in the cart: " + cart.getItemCount());
     }
 }

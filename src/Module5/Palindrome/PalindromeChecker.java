@@ -17,5 +17,8 @@ public class PalindromeChecker {
         PalindromeChecker checker = new PalindromeChecker();
         System.out.println(checker.isPalindrome("radar"));
         System.out.println(checker.isPalindrome("raidar"));
+        System.out.println(checker.isPalindrome("hello"));
+        System.out.println(checker.isPalindrome("openai"));
+        System.out.println(checker.isPalindrome("abba"));
     }
 }
