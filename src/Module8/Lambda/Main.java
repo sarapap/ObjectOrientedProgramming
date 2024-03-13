@@ -14,16 +14,15 @@ public class Main {
         people.add(new Person("Lisa", 34, "London"));
         people.add(new Person("Mary", 27, "Madrid"));
 
-        people.sort(Comparator.comparingInt(Person::getAge));
+        Comparator comparator = Comparator.comparing(Person::getName);
+        people.sort(comparator);
         System.out.println("People sorted by age:");
         people.forEach(person -> System.out.println(person));
         System.out.println();
 
-
         String city = "Helsinki";
         people.removeIf(person -> !person.getCity().equals(city));
-        for (Person person : people) {
-            System.out.println(person);
-        }
+        people.forEach(person -> System.out.println(person));
+
     }
 }
